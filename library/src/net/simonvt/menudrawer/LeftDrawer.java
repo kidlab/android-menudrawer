@@ -27,9 +27,22 @@ public class LeftDrawer extends HorizontalDrawer {
         super(context, attrs, defStyle);
     }
 
+    /**
+     * CUSTOMIZED by manvuong
+     * Check if it needs to translateX the menu.
+     */
+    private boolean checkNeedTranslation() {
+    	return (mMaxVisibleMenuSize > -1 && mMaxVisibleMenuSize < mMenuSize);
+    }
+    // END CUSTOMIZE
+    
     @Override
     public void openMenu(boolean animate) {
-        animateOffsetTo(mMenuSize, 0, animate);
+    	// CUSTOMIZED by manvuong
+    	final int size = (mMaxVisibleMenuSize > -1 ? mMaxVisibleMenuSize : mMenuSize);
+    	// END CUSTOMIZE
+    	
+        animateOffsetTo(size, 0, animate);
     }
 
     @Override
@@ -69,6 +82,12 @@ public class LeftDrawer extends HorizontalDrawer {
      * @param offsetPixels The number of pixels the content if offset.
      */
     private void offsetMenu(int offsetPixels) {
+    	// CUSTOMIZED by manvuong
+    	if(checkNeedTranslation())
+    		return; // Do nothing.
+    	
+    	// END CUSTOMIZE
+    	
         if (mOffsetMenu && mMenuSize != 0) {
             final int menuWidth = mMenuSize;
             final float openRatio = (menuWidth - (float) offsetPixels) / menuWidth;
@@ -88,8 +107,8 @@ public class LeftDrawer extends HorizontalDrawer {
                 mMenuContainer.setVisibility(offsetPixels == 0 ? INVISIBLE : VISIBLE);
             }
         }
-    }
-
+    }    
+    
     @Override
     protected void drawDropShadow(Canvas canvas, int offsetPixels) {
         final int height = getHeight();
@@ -191,7 +210,10 @@ public class LeftDrawer extends HorizontalDrawer {
 
     @Override
     protected void onMoveEvent(float dx) {
-        setOffsetPixels(Math.min(Math.max(mOffsetPixels + dx, 0), mMenuSize));
+    	// CUSTOMIZED by manvuong
+    	final int offset = (mMaxDraggedVisibleSize > -1 ? mMaxDraggedVisibleSize : mMenuSize);
+    	// END CUSTOMIZE
+        setOffsetPixels(Math.min(Math.max(mOffsetPixels + dx, 0), offset));
     }
 
     @Override
@@ -202,7 +224,10 @@ public class LeftDrawer extends HorizontalDrawer {
             mVelocityTracker.computeCurrentVelocity(1000, mMaxVelocity);
             final int initialVelocity = (int) mVelocityTracker.getXVelocity();
             mLastMotionX = ev.getX();
-            animateOffsetTo(mVelocityTracker.getXVelocity() > 0 ? mMenuSize : 0, initialVelocity, true);
+            // CUSTOMIZED by manvuong
+            final int size = (mMaxVisibleMenuSize > -1 ? mMaxVisibleMenuSize : mMenuSize);
+            // END CUSTOMIZE
+            animateOffsetTo(mVelocityTracker.getXVelocity() > 0 ? size : 0, initialVelocity, true);
 
             // Close the menu when content is clicked while the menu is visible.
         } else if (mMenuVisible && ev.getX() > offsetPixels) {
