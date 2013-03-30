@@ -6,6 +6,11 @@
 
         <item name="menuDrawerStyle">@style/MenuDrawerStyle</item>
     </style>
+    
+    <style name="SampleIconTheme" parent="SampleBase">
+
+        <item name="menuDrawerStyle">@style/MenuDrawerIconStyle</item>
+    </style>
 
     <style name="SampleTheme.RightDrawer" parent="SampleBase">
 

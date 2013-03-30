@@ -12,6 +12,14 @@
         listener set on each item.\nThe drawer will animate slightly open, to make it more discoverable.\nAdditionally,
         if the menu is open, a back press will close it.
     </string>
+    
+    <string name="sample_window_icon">The same as Window Sample example, but the menu just shows 
+        a small portion enough for icons.\nTo show the menu item text, user can drag the menu to the right.\nThe menu size will be restored 
+        after finishing the dragging.\nAdditionally, there is no need to show the menu indicator,
+        because it\'s too small.\nThe icons should be unique.\nYou can improve the menu 
+        by setting the selected state (e.g, change the background color) of the selected item.
+    </string>
+    
 
     <string name="sample_listactivity">Sample of how to use the drawer with ListActivity.\nWhen running on ICS or
         greater, the ActionBar up button will blink until clicked by the user. This is done to make the menu more
