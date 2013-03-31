@@ -5,6 +5,8 @@ A slide-out menu implementation, which allows users to navigate between views
 in your app. Most commonly the menu is revealed by either dragging the edge
 of the screen, or clicking the 'up' button in the action bar.
 
+This is an extended version from https://github.com/SimonVT/android-menudrawer, to make a menu style like Google Plus and YouTube.
+
 
 Features
 --------
@@ -17,6 +19,7 @@ Features
    not at all.
  * Can be used in XML layouts.
  * Indicator that shows which screen is currently visible.
+ * (New) Menu style like Google Plus and YouTube that shows icon only and shows text when users drag.
 
 
 Usage
@@ -69,6 +72,7 @@ Credits
 =======
 
  * Cyril Mottier for his [articles][1] on the pattern
+ * Simon Vig Therkildsen with the original [android-menudrawer][2]
 
 
 License
@@ -94,3 +98,4 @@ License
 
 
  [1]: http://android.cyrilmottier.com/?p=658
+ [2]: https://github.com/SimonVT/android-menudrawer
