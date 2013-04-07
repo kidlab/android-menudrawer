@@ -161,30 +161,27 @@ public abstract class DraggableDrawer extends MenuDrawer {
     private boolean mLayerTypeHardware;
 
     /**
-     * CUSTOMIZED by manvuong
      * Max size to show when the content view is dragged.
      */
     protected int mMaxDraggedVisibleSize = -1;
-    protected int mMaxVisibleMenuSize = -1;    
-    
+    protected int mMaxVisibleMenuSize = -1;
+
     public void setMaxDraggedVisibleSize(int size) {
-    	mMaxDraggedVisibleSize = size;
+        mMaxDraggedVisibleSize = size;
     }
-    
+
     public int getMaxDraggedVisibleSize() {
-    	return mMaxDraggedVisibleSize;
+        return mMaxDraggedVisibleSize;
     }
-    
+
     public void setMaxVisibleMenuSize(int size) {
-    	mMaxVisibleMenuSize = size;
+        mMaxVisibleMenuSize = size;
     }
-    
+
     public int getMaxVisibleMenuSize() {
-    	return mMaxVisibleMenuSize;
+        return mMaxVisibleMenuSize;
     }
-    
-    // END CUSTOMIZE
-    
+
     DraggableDrawer(Activity activity, int dragMode) {
         super(activity, dragMode);
     }
